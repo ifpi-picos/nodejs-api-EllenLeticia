@@ -1,7 +1,7 @@
 const express = require('express');
 const postagensController = require('../controllers/postagens')
 const router = express.Router();
-const postagemModel = require('../models/postagem');
+
 
 router.get('/', async (req, res) => {
   const postagens = await postagensController.get();
@@ -13,11 +13,23 @@ router.post('/', async (req, res) => {
   res.send('Adicionado com sucesso');
 });
 
+router.get('/:id', async (req,res) => {
+  const id = req.params.id;
+  const postagem = await postagensController.getPorId(id);
+  res.send(postagem);
+});
+
 //update postagem por ID
 router.put('/:id', async(req, res) => {
   const id = req.params.id;
   await postagensController.update(id, req.body);
   res.send('Alterado com sucesso.'); 
+});
+
+router.delete('/:id', async (req, res) => {
+  const id = req.params.id;
+  await postagensController.delete(id);
+  res.send('Deletado com sucesso');
 });
 
 
