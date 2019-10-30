@@ -1,11 +1,15 @@
 {
-  "name": "le",
+  "name": "nodejs-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "leticia",
-  "license": "ISC"
+  "author": "Letícia Ellen",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.7.6"
+  }
 }
